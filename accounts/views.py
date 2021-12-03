@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic.base import TemplateView
 from accounts.models import CustomUser
 from accounts.forms import ProfileForm
+from allauth.account import views
 
 class ProfileView(View):
   def get(self, request, *args, **kwargs):
@@ -38,3 +40,6 @@ class ProfileEditView(View):
     return render(request, 'accounts/profile.html', {
       'form': form
     })
+
+class LoginView(views.LoginView):
+  template_name = 'accounts/login.html'
