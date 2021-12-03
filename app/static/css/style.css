@@ -42,7 +42,7 @@ main {
 }
 
 .profile_table .header {
-  width: 200px;
+  width: 100px;
   padding: 16px 24px;
   text-align: left;
   background-color: #f1f5fa;
@@ -52,3 +52,15 @@ main {
   padding: 16px 24px;
 }
 
+.form_wrap {
+  display: grid;
+  gap: 16px;
+}
+
+.form_wrap-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}

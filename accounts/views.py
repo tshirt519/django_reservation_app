@@ -21,7 +21,8 @@ class ProfileEditView(View):
         'last_name': user_data.last_name,
       }
     )
-    return render(request, 'accounts/profile.html', {
+
+    return render(request, 'accounts/profile_edit.html', {
         'form': form
       })
 
