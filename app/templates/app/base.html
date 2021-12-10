@@ -12,47 +12,48 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Reservation Test</title>
+    <title>Reservation App</title>
   </head>
   <body>
-      <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                      <a href="/" class="nav-link">ホーム</a>
-                  </li>
-                  {% if user.is_authenticated %}
-                  <li class="nav-item">
-                      <a href="{% url 'profile' %}" class="nav-link">プロフィール</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{% url 'account_logout' %}" class="nav-link">ログアウト</a>
-                  </li>
-                  {% else %}
-                  <li class="nav-item">
-                      <a href="{% url 'account_login' %}" class="nav-link">ログイン</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{% url 'account_signup' %}" class="nav-link">サインアップ</a>
-                  </li>
-                  {% endif %}
-              </ul>
-          </div>
-      </nav>
-      
-      <main>
-          <div class="container">
-              {% block content %}
-              {% endblock %}
-          </div>
-      </main>
+    <nav class="nav navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a href="/" class="navbar-brand">ホーム</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="/" class="nav-link">ホーム</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'profile' %}" class="nav-link">プロフィール</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'account_logout' %}" class="nav-link">ログアウト</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'account_login' %}" class="nav-link">ログイン</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'account_signup' %}" class="nav-link">スタッフ</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
 
-      <footer class="py-2 bg-dark">
-        <p class="m-0 text-center text-white">Copyright &copy; tshirt</p>
-      </footer>
+    <main>
+      <div class="container">{% block content %} {% endblock %}</div>
+    </main>
 
-      {% block extra.js %}
-      {% endblock %}
+    <footer class="py-2 bg-dark">
+      <p class="m-0 text-center text-white">Copyright &copy; tshirt</p>
+    </footer>
+
+    {% block extra.js %} {% endblock %}
   </body>
 </html>
