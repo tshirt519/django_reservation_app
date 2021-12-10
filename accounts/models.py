@@ -32,6 +32,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(('姓'), max_length=30,)
     last_name = models.CharField(('名'), max_length=150,)
     created = models.DateField('入会日', default=timezone.now)
+    description= models.TextField('自己紹介', default="", blank=True)
+    image= models.ImageField(upload_to='images', verbose_name='プロフィール画像', null=True, blank=True)
+
     is_staff = models.BooleanField(
         ('staff status'),
         default=False,
